@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> FIFA RECOMMENDATION SYSTEM </title>
+    </head>
+    <body>
+        <div>
+            <h1 style="text-align:center">FIFA RECOMMENDATION SYSTEM </h1>
+        </div>
+        <div>
+            <form action="/" method="post">
+                <input placeholder='Name' name='pfname'>
+                <input placeholder='Club' name='pclub'>
+                <input placeholder='Nationality' name='pnationality'>
+                <input placeholder='Market Value' name='pmval'>
+                <input type='submit' value='Submit'>
+            </form>
+            {% for val in recommendedNames %}
+            <div> {{val[0]}} </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
