@@ -5,6 +5,7 @@ body {
 }
 
 .search_player {
+ position: absolute;
  top: 20%;
  left: 50%;
  transform: translate(-50%, -50%);
@@ -57,7 +58,6 @@ body {
  width: 0px;
  font-weight: bold;
 }
-
 
 .results_container_rectangle_1{
     border-radius: 25px;
