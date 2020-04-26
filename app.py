@@ -7,6 +7,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 app = Flask(__name__, root_path=dir_path)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
+
 # app = Flask(__name__)
 	
 # @app.route('/')
@@ -27,10 +28,10 @@ def getRecommendations():
 		# else:
 		# 	form_mval = int(form_mval)
 		recommendedNames = recommend.getTopKSimilar(name = form_name)
-		print(recommendedNames)
-		return render_template('/index.html' , recommendedNames=recommendedNames)
+		searchedName = recommendedNames[-1]
+		return render_template('/index.html' , recommendedNames=recommendedNames, searchedName=searchedName)
 
-	else:
+	else:		
 		return render_template('/index.html', recommendedNames=[(0),(0),(0),(0),(0)]) 
 
 

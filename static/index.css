@@ -6,8 +6,8 @@ body {
 
 .search_player {
  position: absolute;
- top: 20%;
- left: 50%;
+ top: 15%;
+ left: 48.5%;
  transform: translate(-50%, -50%);
  background: #2f3640;
  height: 40px;
@@ -59,47 +59,90 @@ body {
  font-weight: bold;
 }
 
+
+
 .results_container_rectangle_1{
+    display: block;
     border-radius: 25px;
-    border: 2px solid  #2f3640;
+    /* border: 2px solid  #2f3640; */
+    background-color: #2f3640;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 20px;
+    margin-left: 155px;
+    margin-top: 550px;
+    width: 200px;
+    height: 250px;
+    float: left;
+    position: relative;
+
 }
 
 .results_container_rectangle_2{
+    display: block;
     border-radius: 25px;
-    border: 2px solid  #2f3640;
+    /* border: 2px solid  #2f3640; */
+    background-color: #2f3640;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 20px;
+    margin-left: 75px;
+    margin-top: 550px;
+    width: 200px;
+    height: 250px;
+    float: left;
+ 
 }
 
 .results_container_rectangle_3{
+    display: block;
     border-radius: 25px;
-    border: 2px solid  #2f3640;
+    /* border: 5px solid  #2f3640; */
+    background-color: #2f3640;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 20px;
+    margin-left: 75px;
+    margin-top: 550px;
+    width: 200px;
+    height: 250px;
+    float: left;
+    bottom: 10px;
 }
-
 
 .results_container_rectangle_4{
+    display: block;
     border-radius: 25px;
-    border: 2px solid  #2f3640;
+    /* border: 2px solid  #2f3640; */
+    background-color: #2f3640;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 20px;
+    margin-left: 75px;
+    margin-top: 550px;
+    width: 200px;
+    height: 250px;
+    float: left;
 }
 .results_container_rectangle_5{
+    display: block;
     border-radius: 25px;
-    border: 2px solid  #2f3640;
+    background-color: #2f3640;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 20px;
+    margin-left: 75px;
+    margin-top: 550px;
+    width: 200px;
+    height: 250px;
+    float: left;
+}
+
+.results_container_rectangle_6{
+    display: block;
+    border-radius: 25px;
+    border: 2px solid whitesmoke;
+    background-color: #2f3640;
+    color: white;
+    padding: 20px;
+    margin-left: 785px;
+    margin-top: -625px;
+    width: 200px;
+    height: 250px;
+    float: left;
 }

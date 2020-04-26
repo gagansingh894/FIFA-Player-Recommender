@@ -32,14 +32,14 @@ class Recommendations:
     def getTopKSimilar(self, name, club='', nationality='', mval=-1):
         print(name)
 
-        self.queryResult = self.c.execute("SELECT sofifa_id, GroupCol FROM player_data WHERE short_name LIKE {} LIMIT 5".format("'%" + name + "%'")).fetchone()
+        self.queryResult = self.c.execute("SELECT sofifa_id, GroupCol, short_name FROM player_data WHERE short_name LIKE {} LIMIT 5".format("'%" + name + "%'")).fetchone()
 
         if self.queryResult is not None:
             self._id = self.queryResult[0]
             self.grp = self.queryResult[1]
-            print(self._id, self.grp)
-            self._id = self.queryResult[0]
-            self.grp = self.queryResult[1]
+            self.qsname = self.queryResult[2]
+            # print(self._id, self.grp)
+            
 
             if club == '' and nationality == '' and mval == -1:
                 self.query = "SELECT * FROM player_data WHERE GroupCol = {}".format("'" + self.grp + "'") # DEFAULT QUERY
@@ -82,15 +82,17 @@ class Recommendations:
                     self.tempList.remove(self._id)
                     self.req_ids = tuple(self.tempList[0:self.k])
                     self.rcms = self.c.execute("SELECT short_name FROM player_data WHERE sofifa_id in {0}".format(self.req_ids)).fetchall()
+                    self.rcms.append(self.qsname)
                     # for self.val in self.rcms:
                     #     print(self.val[0])
+                    # print(self.rcms)
                     return self.rcms
                 except:
                     print("Player id not present in matrix")
 
             else:
                 print("No data found for your query")
-                return
+                return [self.qsname]
 
         else:
             print("Player does not exist in database!")
