@@ -22,10 +22,22 @@ class Recommendations:
         self.c = self.conn.cursor()
         print("Connected to database succesfully")
 
-    def getTopKSimilar(self, name, club='', nationality='', mval=-1):
+    
+    # def getPlayerNames(self, name):
+    #     self.queryResult = self.c.execute("SELECT sofifa_id, GroupCol FROM player_data WHERE instr(long_name, {} LIMIT 5) > 0".format("'" + name + "'")).fetchall()
+    #     self._id = self.queryResult[0]
+    #     self.grp = self.queryResult[1]
 
-        self.queryResult = self.c.execute("SELECT sofifa_id, GroupCol FROM player_data WHERE short_name = {}".format("'" + name + "'")).fetchone()
+
+    def getTopKSimilar(self, name, club='', nationality='', mval=-1):
+        print(name)
+
+        self.queryResult = self.c.execute("SELECT sofifa_id, GroupCol FROM player_data WHERE short_name LIKE {} LIMIT 5".format("'%" + name + "%'")).fetchone()
+
         if self.queryResult is not None:
+            self._id = self.queryResult[0]
+            self.grp = self.queryResult[1]
+            print(self._id, self.grp)
             self._id = self.queryResult[0]
             self.grp = self.queryResult[1]
 

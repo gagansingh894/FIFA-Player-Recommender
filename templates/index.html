@@ -1,23 +1,41 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title> FIFA RECOMMENDATION SYSTEM </title>
-    </head>
-    <body>
-        <div>
-            <h1 style="text-align:center">FIFA RECOMMENDATION SYSTEM </h1>
-        </div>
-        <div>
-            <form action="/" method="post">
-                <input placeholder='Name' name='pfname'>
-                <input placeholder='Club' name='pclub'>
-                <input placeholder='Nationality' name='pnationality'>
-                <input placeholder='Market Value' name='pmval'>
-                <input type='submit' value='Submit'>
-            </form>
-            {% for val in recommendedNames %}
-            <div> {{val[0]}} </div>
-            {% endfor %}
-        </div>
-    </body>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" type="text/css" href="/static/index.css "> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    <script type="text/javascript" src ="{{ url_for('static', filename='index.js') }}"></script>
+
+    <title>FIFA Recommendation System</title>
+  </head>
+  <body>
+    <form id="myForm"  method="post">
+      <div class="search_player">  
+        <input type="text" name="pfname" class="search_player_txt" 
+        placeholder="Enter Player Name...." oninput="getValue()">
+        <!-- <input type='submit' value='Submit'> -->
+        <a class="search_player_btn">
+          <i class="material-icons instant-search__icon">search</i>
+        </a>
+      </div>
+    </form>  
+    <!-- <div id ="rc" class="results_container">
+      {% for idx in [0,1,2,3,4] %}
+      <div id = "p{{ idx }}" class="results_container_rectangle_{{ idx }}"> <h2 style="text-align:center">{{recommendedNames[idx][0]}} </h2></div>
+    {% endfor %}
+    </div>   -->
+    <!-- {% for idx in [0,1,2,3,4] %}
+      <div id = "p{{ idx }}"> <h2 style="text-align:justify">{{recommendedNames[idx][0]}} </h2></div>
+    {% endfor %} -->
+    <!-- </div>  -->
+    <div id = "p0" class="results_container_rectangle_0"> <h2 style="text-align:center"> </h2></div>
+    <div id = "p1" class="results_container_rectangle_1"> <h2 style="text-align:center">{{recommendedNames[0][0]}} </h2></div>
+    <div id = "p2" class="results_container_rectangle_2"> <h2 style="text-align:center">{{recommendedNames[1][0]}} </h2></div>
+    <div id = "p3" class="results_container_rectangle_3"> <h2 style="text-align:center">{{recommendedNames[2][0]}} </h2></div>
+    <div id = "p4" class="results_container_rectangle_4"> <h2 style="text-align:center">{{recommendedNames[3][0]}} </h2></div>
+    <div id = "p4" class="results_container_rectangle_5"> <h2 style="text-align:center">{{recommendedNames[4][0]}} </h2></div>
+  </body>
 </html>
