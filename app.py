@@ -5,6 +5,7 @@ import os
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 app = Flask(__name__, root_path=dir_path)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 # app = Flask(__name__)
 	
 # @app.route('/')
