@@ -33,13 +33,15 @@ def getRecommendations():
 				searchedName = recommendedNames[-1]
 				return render_template('/index.html' , recommendedNames=recommendedNames, searchedName=searchedName)
 			else: 
-				recommendedNames = [[("Loading.."),("Loading.."),("Loading.."),("Loading.."),("Loading..")]]
+				recommendedNames = [[("Loading..")],[("Loading..")],[("Loading..")],[("Loading..")],[("Loading..")]]
 				return render_template('/index.html', recommendedNames=recommendedNames)
 		else:		
 			return render_template('/index.html', recommendedNames=[(0),(0),(0),(0),(0)]) 
 
 	except:
-			return render_template('/index.html', recommendedNames=[(0),(0),(0),(0),(0)])
+			msg = "error"
+			recommendedNames = [[(msg)],[(msg)],[(msg)],[(msg)],[(msg)]]
+			return render_template('/index.html', recommendedNames=recommendedNames)
 
 
 
