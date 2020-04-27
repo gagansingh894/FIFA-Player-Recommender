@@ -17,22 +17,30 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.route('/', methods=['GET', 'POST'])
 def getRecommendations():
-	if request.method == 'POST':
-		recommend = Recommendations(5)
-		form_name = request.form.get('pfname')
-		# form_club = request.form.get('pclub')
-		# form_nationality = request.form.get('pnationality')
-		# form_mval = request.form.get('pmval')
-		# if len(form_mval) == 0:
-		# 	form_mval = -1
-		# else:
-		# 	form_mval = int(form_mval)
-		recommendedNames = recommend.getTopKSimilar(name = form_name)
-		searchedName = recommendedNames[-1]
-		return render_template('/index.html' , recommendedNames=recommendedNames, searchedName=searchedName)
+	try:
+		if request.method == 'POST':
+			recommend = Recommendations(5)
+			form_name = request.form.get('pfname')
+			# form_club = request.form.get('pclub')
+			# form_nationality = request.form.get('pnationality')
+			# form_mval = request.form.get('pmval')
+			# if len(form_mval) == 0:
+			# 	form_mval = -1
+			# else:
+			# 	form_mval = int(form_mval)
+			recommendedNames = recommend.getTopKSimilar(name = form_name)
+			if recommendedNames is not None:
+				searchedName = recommendedNames[-1]
+				return render_template('/index.html' , recommendedNames=recommendedNames, searchedName=searchedName)
+			else: 
+				recommendedNames = [[("Loading.."),("Loading.."),("Loading.."),("Loading.."),("Loading..")]]
+				return render_template('/index.html', recommendedNames=recommendedNames)
+		else:		
+			return render_template('/index.html', recommendedNames=[(0),(0),(0),(0),(0)]) 
 
-	else:		
-		return render_template('/index.html', recommendedNames=[(0),(0),(0),(0),(0)]) 
+	except:
+			return render_template('/index.html', recommendedNames=[(0),(0),(0),(0),(0)])
+
 
 
 	#, club=form_club, nationality=form_nationality, mval=form_mval)
