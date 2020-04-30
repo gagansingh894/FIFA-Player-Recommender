@@ -1,3 +1,4 @@
+import sys
 import RecommendationsEngine as reng
 recommend = reng.Recommendations(5)
 
@@ -7,4 +8,4 @@ recommend = reng.Recommendations(5)
 # nation = str(input("Enter Nationality: "))
 # mval = int(input("Enter Market Value: "))  # LTEqualTo
 
-recommend.getTopKSimilar(name = "L. Messi", mval=2500000)
+recommend.getTopKSimilar(name = "mess")

@@ -6,6 +6,16 @@ import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 app = Flask(__name__, root_path=dir_path)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+incorrectResult = [(0,0,0,0,0,0), [(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0), (0,0,0,0,0,0)],
+				   [(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0), (0,0,0,0,0,0)],
+				   [(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0), (0,0,0,0,0,0)],
+				   [(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0), (0,0,0,0,0,0)]]
+
+msg = "Player does not exist in database!"
+noResult = [(msg,msg,msg,msg,msg,msg), [(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg), (msg,msg,msg,msg,msg,msg)],
+				   [(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg), (msg,msg,msg,msg,msg,msg)],
+				   [(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg), (msg,msg,msg,msg,msg,msg)],
+				   [(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg), (msg,msg,msg,msg,msg,msg)],]
 
 
 # app = Flask(__name__)
@@ -33,24 +43,16 @@ def getRecommendations():
 				searchedName = recommendedNames[-1]
 				return render_template('/index.html' , recommendedNames=recommendedNames, searchedName=searchedName)
 			else: 
-				msg = "Player does not exist in database!"
-				recommendedNames = [[(msg)],[(msg)],[(msg)],[(msg)],[(msg)]]
+				# recommendedNames = [[(msg)],[(msg)],[(msg)],[(msg)],[(msg)]]
 				# recommendedNames = [[("Loading..")],[("Loading..")],[("Loading..")],[("Loading..")],[("Loading..")]]
-				return render_template('/index.html', recommendedNames=recommendedNames)
+				return render_template('/index.html', recommendedNames=noResult)
 		else:		
-			return render_template('/index.html', recommendedNames=[(0),(0),(0),(0),(0)]) 
+			return render_template('/index.html', recommendedNames=incorrectResult) 
 
 	except:
-			msg = "error"
-			recommendedNames = [[(msg)],[(msg)],[(msg)],[(msg)],[(msg)]]
+			# msg = "error"
+			# recommendedNames = [[(msg)],[(msg)],[(msg)],[(msg)],[(msg)]]
 			return render_template('/index.html', recommendedNames=recommendedNames)
-
-
-
-	#, club=form_club, nationality=form_nationality, mval=form_mval)
-	# recommendedNames = recommend.getTopKSimilar(name = form_name)
-	# recommendedNames = recommend.getPlayerNames(name = form_name)	
-	#recommendedNames=recommendedNames)
 
 if __name__ == "__main__":
 	app.run(debug=True)
