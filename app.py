@@ -52,7 +52,7 @@ def getRecommendations():
 	except:
 			# msg = "error"
 			# recommendedNames = [[(msg)],[(msg)],[(msg)],[(msg)],[(msg)]]
-			return render_template('/index.html', recommendedNames=recommendedNames)
+			return render_template('/index.html', recommendedNames=incorrectResult)
 
 if __name__ == "__main__":
 	app.run(debug=True)
