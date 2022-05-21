@@ -11,7 +11,7 @@ incorrectResult = [(0,0,0,0,0,0), [(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0),(0,
 				   [(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0), (0,0,0,0,0,0)],
 				   [(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0),(0,0,0,0,0,0), (0,0,0,0,0,0)]]
 
-msg = "Player does not exist in database!"
+msg = "Player does not exist in database!!"
 noResult = [(msg,msg,msg,msg,msg,msg), [(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg), (msg,msg,msg,msg,msg,msg)],
 				   [(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg), (msg,msg,msg,msg,msg,msg)],
 				   [(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg),(msg,msg,msg,msg,msg,msg), (msg,msg,msg,msg,msg,msg)],
